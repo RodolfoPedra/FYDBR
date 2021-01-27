@@ -1,0 +1,112 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "4.46.0",
+  "hash": "33daf90047d7a7e6d794",
+  "publicPath": "/static/",
+  "outputPath": "C:\\Users\\rodol\\Documents\\Rodolfo\\Projetos\\FYDBR\\fydbr\\build\\static",
+  "assetsByChunkName": {
+    "fydbr": [
+      "fydbr.module.js",
+      "fydbr.05efb1b92f69e63edc7e.hot-update.js"
+    ],
+    "list": "list.module.js"
+  },
+  "assets": [
+    {
+      "name": "05efb1b92f69e63edc7e.hot-update.json",
+      "size": 47,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "fydbr.05efb1b92f69e63edc7e.hot-update.js",
+      "size": 62728,
+      "chunks": [
+        "fydbr"
+      ],
+      "chunkNames": [
+        "fydbr"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "fydbr.module.js",
+      "size": 5271802,
+      "chunks": [
+        "fydbr"
+      ],
+      "chunkNames": [
+        "fydbr"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "list.module.js",
+      "size": 48417,
+      "chunks": [
+        "list"
+      ],
+      "chunkNames": [
+        "list"
+      ],
+      "info": {},
+      "emitted": false
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "fydbr": {
+      "chunks": [
+        "fydbr"
+      ],
+      "assets": [
+        "fydbr.module.js",
+        "fydbr.05efb1b92f69e63edc7e.hot-update.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "fydbr": {
+      "chunks": [
+        "fydbr"
+      ],
+      "assets": [
+        "fydbr.module.js",
+        "fydbr.05efb1b92f69e63edc7e.hot-update.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "list": {
+      "chunks": [
+        "list"
+      ],
+      "assets": [
+        "list.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "logging": {
+    "webpack.buildChunkGraph.visitModules": {
+      "entries": [],
+      "filteredEntries": 5,
+      "debug": false
+    }
+  },
+  "children": []
+}
