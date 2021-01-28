@@ -2,19 +2,19 @@
   "errors": [],
   "warnings": [],
   "version": "4.46.0",
-  "hash": "33daf90047d7a7e6d794",
+  "hash": "cfa87ce401f94e3f29a4",
   "publicPath": "/static/",
-  "outputPath": "C:\\Users\\rodol\\Documents\\Rodolfo\\Projetos\\FYDBR\\fydbr\\build\\static",
+  "outputPath": "C:\\Users\\rodol\\OneDrive\\Documentos\\Projetos\\freelas\\FYDBR - Marina\\FYDBR\\build\\static",
   "assetsByChunkName": {
     "fydbr": [
       "fydbr.module.js",
-      "fydbr.05efb1b92f69e63edc7e.hot-update.js"
+      "fydbr.dee62c1894f59cdbfcbf.hot-update.js"
     ],
     "list": "list.module.js"
   },
   "assets": [
     {
-      "name": "05efb1b92f69e63edc7e.hot-update.json",
+      "name": "dee62c1894f59cdbfcbf.hot-update.json",
       "size": 47,
       "chunks": [],
       "chunkNames": [],
@@ -25,8 +25,8 @@
       "emitted": false
     },
     {
-      "name": "fydbr.05efb1b92f69e63edc7e.hot-update.js",
-      "size": 62728,
+      "name": "fydbr.dee62c1894f59cdbfcbf.hot-update.js",
+      "size": 6349,
       "chunks": [
         "fydbr"
       ],
@@ -41,7 +41,7 @@
     },
     {
       "name": "fydbr.module.js",
-      "size": 5271802,
+      "size": 5284034,
       "chunks": [
         "fydbr"
       ],
@@ -53,7 +53,7 @@
     },
     {
       "name": "list.module.js",
-      "size": 48417,
+      "size": 50915,
       "chunks": [
         "list"
       ],
@@ -72,7 +72,7 @@
       ],
       "assets": [
         "fydbr.module.js",
-        "fydbr.05efb1b92f69e63edc7e.hot-update.js"
+        "fydbr.dee62c1894f59cdbfcbf.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -85,7 +85,7 @@
       ],
       "assets": [
         "fydbr.module.js",
-        "fydbr.05efb1b92f69e63edc7e.hot-update.js"
+        "fydbr.dee62c1894f59cdbfcbf.hot-update.js"
       ],
       "children": {},
       "childAssets": {}

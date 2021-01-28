@@ -7,6 +7,13 @@ import Link from "./link";
  *
  * It renders the navigation links
  */
+
+// const [dstate, setDstate] = React.useState(null);
+
+// React.useEffect(() => {
+//   console.log("state nav: ", dstate);
+// }, [dstate]);
+
 const Nav = ({ state }) => (
   <NavContainer>
     {state.theme.menu.map(([name, link]) => {
@@ -29,13 +36,15 @@ export default connect(Nav);
 const NavContainer = styled.nav`
   list-style: none;
   display: flex;
-  width: 848px;
+  align-items: center;
+  width: 1270px;
+  height: 68px;
   max-width: 100%;
   box-sizing: border-box;
   padding: 0 24px;
   margin: 0;
   overflow-x: auto;
-
+  background: #000;
   @media screen and (max-width: 560px) {
     display: none;
   }
@@ -45,7 +54,9 @@ const NavItem = styled.div`
   padding: 0;
   margin: 0 16px;
   color: #fff;
-  font-size: 0.9em;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: bold;
   box-sizing: border-box;
   flex-shrink: 0;
 
@@ -56,7 +67,7 @@ const NavItem = styled.div`
     border-bottom-color: transparent;
     /* Use for semantic approach to style the current link */
     &[aria-current="page"] {
-      border-bottom-color: #fff;
+      color: #c10000;
     }
   }
 

@@ -23,6 +23,7 @@ const settings = {
           featured: {
             showOnList: false,
             showOnPost: false,
+            seila: "sdadsa",
           },
         },
       },

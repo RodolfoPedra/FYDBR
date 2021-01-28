@@ -16,8 +16,6 @@ const Theme = ({ state }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
 
-  console.log("data: ", data);
-
   return (
     <>
       {/* Add some metatags to the <head> of the HTML. */}

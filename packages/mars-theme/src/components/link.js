@@ -18,7 +18,9 @@ import Link from "@frontity/components/link";
  * @returns A {@link Link} component, which returns an HTML anchor element.
  */
 const MarsLink = ({ children, ...props }) => {
+  console.log(children);
   const { state, actions } = useConnect();
+  // console.log("props link: ", ...props);
 
   /**
    * A handler that closes the mobile menu when a link is clicked.
