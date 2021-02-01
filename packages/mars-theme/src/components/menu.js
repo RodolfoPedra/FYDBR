@@ -13,10 +13,10 @@ function MobileMenu({ state, actions }) {
             {/* Add some style to the body when menu is open,
             to prevent body scroll */}
             <Global styles={{ body: { overflowY: "hidden" } }} />
-            <CloseIcon color="white" size="20px" />
+            <CloseIcon color="#000" size="20px" />
           </>
         ) : (
-          <HamburgerIcon color="white" size="24px" />
+          <HamburgerIcon color="#000" size="24px" />
         )}
       </MenuToggle>
       {/* If the menu is open, render the menu modal */}

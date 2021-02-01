@@ -2,19 +2,19 @@
   "errors": [],
   "warnings": [],
   "version": "4.46.0",
-  "hash": "cfa87ce401f94e3f29a4",
+  "hash": "2087517f0a0082075d0a",
   "publicPath": "/static/",
   "outputPath": "C:\\Users\\rodol\\OneDrive\\Documentos\\Projetos\\freelas\\FYDBR - Marina\\FYDBR\\build\\static",
   "assetsByChunkName": {
     "fydbr": [
       "fydbr.module.js",
-      "fydbr.dee62c1894f59cdbfcbf.hot-update.js"
+      "fydbr.52aa2045e89cb1b7e048.hot-update.js"
     ],
     "list": "list.module.js"
   },
   "assets": [
     {
-      "name": "dee62c1894f59cdbfcbf.hot-update.json",
+      "name": "52aa2045e89cb1b7e048.hot-update.json",
       "size": 47,
       "chunks": [],
       "chunkNames": [],
@@ -25,8 +25,8 @@
       "emitted": false
     },
     {
-      "name": "fydbr.dee62c1894f59cdbfcbf.hot-update.js",
-      "size": 6349,
+      "name": "fydbr.52aa2045e89cb1b7e048.hot-update.js",
+      "size": 8880,
       "chunks": [
         "fydbr"
       ],
@@ -41,7 +41,7 @@
     },
     {
       "name": "fydbr.module.js",
-      "size": 5284034,
+      "size": 8234584,
       "chunks": [
         "fydbr"
       ],
@@ -52,8 +52,16 @@
       "emitted": false
     },
     {
+      "name": "images/Logo_final_morcego.svg",
+      "size": 75752,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
       "name": "list.module.js",
-      "size": 50915,
+      "size": 51994,
       "chunks": [
         "list"
       ],
@@ -72,7 +80,7 @@
       ],
       "assets": [
         "fydbr.module.js",
-        "fydbr.dee62c1894f59cdbfcbf.hot-update.js"
+        "fydbr.52aa2045e89cb1b7e048.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -85,7 +93,7 @@
       ],
       "assets": [
         "fydbr.module.js",
-        "fydbr.dee62c1894f59cdbfcbf.hot-update.js"
+        "fydbr.52aa2045e89cb1b7e048.hot-update.js"
       ],
       "children": {},
       "childAssets": {}

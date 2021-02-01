@@ -1,4 +1,5 @@
 import React from "react";
+import { IoLogoTwitter } from "react-icons/io5";
 import { connect, styled } from "frontity";
 import Link from "./link";
 
@@ -15,38 +16,99 @@ import Link from "./link";
 // }, [dstate]);
 
 const Nav = ({ state }) => (
-  <NavContainer>
-    {state.theme.menu.map(([name, link]) => {
-      // Check if the link matched the current page url
-      const isCurrentPage = state.router.link === link;
-      return (
-        <NavItem key={name}>
-          {/* If link url is the current page, add `aria-current` for a11y */}
-          <Link link={link} aria-current={isCurrentPage ? "page" : undefined}>
-            {name}
-          </Link>
-        </NavItem>
-      );
-    })}
-  </NavContainer>
+  <DivExtContainer>
+    <DivContainer>
+      <NavContainer>
+        {state.theme.menu.map(([name, link]) => {
+          // Check if the link matched the current page url
+          const isCurrentPage = state.router.link === link;
+          return (
+            <NavItem key={name}>
+              {/* If link url is the current page, add `aria-current` for a11y */}
+              <Link
+                link={link}
+                aria-current={isCurrentPage ? "page" : undefined}
+              >
+                {name}
+              </Link>
+            </NavItem>
+          );
+        })}
+      </NavContainer>
+      <LinksSocial>
+        <IoLogoTwitter></IoLogoTwitter>
+      </LinksSocial>
+      <LookLoad>
+        <p>Look and Load</p>
+        <input type="text" />
+      </LookLoad>
+    </DivContainer>
+  </DivExtContainer>
 );
 
 export default connect(Nav);
+
+const DivExtContainer = styled.div`
+  width: 100%;
+  background: #000;
+  display: flex;
+  justify-content: center;
+`;
+
+const DivContainer = styled.div`
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  @media screen and (max-width: 560px) {
+    display: none;
+  }
+`;
 
 const NavContainer = styled.nav`
   list-style: none;
   display: flex;
   align-items: center;
-  width: 1270px;
+  /* max-width: 1598px; */
   height: 68px;
-  max-width: 100%;
   box-sizing: border-box;
-  padding: 0 24px;
+  cursor: pointer !important;
+  /* padding: 0 24px; */
   margin: 0;
   overflow-x: auto;
-  background: #000;
-  @media screen and (max-width: 560px) {
-    display: none;
+`;
+
+const LinksSocial = styled.div`
+  width: 64px;
+  height: 24px;
+  background: #fff;
+
+  IoLogoTwitter {
+    width: 36px;
+    height: 36px;
+  }
+`;
+
+const LookLoad = styled.div`
+  width: 369px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  p {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  input {
+    background: #fff;
+    width: 60%;
+    height: 34px;
+    border-radius: 19px;
   }
 `;
 
@@ -54,7 +116,7 @@ const NavItem = styled.div`
   padding: 0;
   margin: 0 16px;
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 1rem;
   text-transform: uppercase;
   font-weight: bold;
   box-sizing: border-box;
