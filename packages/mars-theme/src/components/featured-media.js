@@ -21,21 +21,21 @@ const FeaturedMedia = ({ state, id }) => {
       ) || null;
 
   return (
-    <Container>
+    <>
       <StyledImage
         alt={media.title.rendered}
         src={media.source_url}
         srcSet={srcset}
       />
-    </Container>
+    </>
   );
 };
 
 export default connect(FeaturedMedia);
 
 const Container = styled.div`
-  margin-top: 16px;
-  height: 300px;
+  /* margin-top: 16px;
+  height: 300px; */
 `;
 
 const StyledImage = styled(Image)`

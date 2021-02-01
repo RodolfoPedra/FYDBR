@@ -1,19 +1,29 @@
 import React from "react";
 import { connect, styled } from "frontity";
+import Link from "../components/link";
+import FeaturedMedia from "../components/featured-media";
 import { Container } from "../assets/css-in-js/GlobalStyles";
 
-const cardnews = () => {
+const cardnews = ({ state, item }) => {
+  // console.log("log do cardnews: ", item);
+  const author = state.source.author[item.author];
+  // const date = new Date(item.date);
+  const category = state.source.category[item.categories][0];
+
   return (
     <>
       <ExtContainer>
         <ContainerCard>
-          <TumbCard></TumbCard>
-          <TypeCard>Matérias</TypeCard>
-          <TittleNews>
-            especial influências musicais #4 Gerard way e a equação criativa De
-            quadrinhos x música que criaram O frontman de mil faces
-          </TittleNews>
-          <DateNews>Novembro 5, 2020</DateNews>
+          <TumbCard>
+            {state.theme.featured.showOnList && (
+              <Link link={item.link}>
+                <FeaturedMedia id={item.featured_media} />
+              </Link>
+            )}
+          </TumbCard>
+          <TypeCard>{category}</TypeCard>
+          <TittleNews>{item.title.rendered}</TittleNews>
+          <DateNews>{date.toDateString()}</DateNews>
         </ContainerCard>
       </ExtContainer>
     </>
@@ -25,25 +35,24 @@ export default connect(cardnews);
 const ExtContainer = styled.div`
   width: 90%;
   box-sizing: border-box;
-  /* padding-right: 27px; */
   color: #000;
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
-const ContainerCard = styled.div`
-  width: 270px;
-  height: 300px;
+const ContainerCard = styled.article`
+  width: 18.69vw;
+  height: 346px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
 `;
 
-const TumbCard = styled.img`
+const TumbCard = styled.div`
   width: 100%;
-  height: 171px;
+  height: 236px;
   background: #dbdbdb;
 `;
 
@@ -60,11 +69,11 @@ const TypeCard = styled.span`
 `;
 
 const TittleNews = styled.p`
+  font-family: DINProCondBold;
   width: 100%;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 28px;
+  line-height: 33px;
   text-align: inherit;
-  font-weight: bold;
   text-transform: uppercase;
 `;
 

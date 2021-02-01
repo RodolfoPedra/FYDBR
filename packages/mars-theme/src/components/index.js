@@ -9,6 +9,7 @@ import Title from "./title";
 import PageError from "./page-error";
 import { globalStyles } from "../assets/css-in-js/GlobalStyles";
 import Home from "./pages/home";
+import FontFace from "../assets/css-in-js/FontFace";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -29,6 +30,7 @@ const Theme = ({ state }) => {
 
       {/* Add some global styles for the whole site, like body or a's. 
       Not classes here because we use CSS-in-JS. Only global HTML tags. */}
+      <FontFace />
       <Global styles={globalStyles} />
 
       {/* Add the header of the site. */}

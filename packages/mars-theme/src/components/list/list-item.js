@@ -12,7 +12,7 @@ import FeaturedMedia from "../featured-media";
  * - FeaturedMedia: the featured image/video of the post
  */
 const Item = ({ state, item }) => {
-  // console.log("log do list item: ", state, item);
+  // console.log("log do list item: ", item);
   const author = state.source.author[item.author];
   const date = new Date(item.date);
 
@@ -42,13 +42,15 @@ const Item = ({ state, item }) => {
        * list of featured posts, we render the media.
        */}
       {state.theme.featured.showOnList && (
-        <FeaturedMedia id={item.featured_media} />
+        <Link link={item.link}>
+          <FeaturedMedia id={item.featured_media} />
+        </Link>
       )}
 
       {/* If the post has an excerpt (short summary text), we render it */}
-      {item.excerpt && (
+      {/* {item.excerpt && (
         <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
-      )}
+      )} */}
     </article>
   );
 };

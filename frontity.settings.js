@@ -21,7 +21,7 @@ const settings = {
             ["Look Alive Sunshine", "/look-alive-sunshine/"],
           ],
           featured: {
-            showOnList: false,
+            showOnList: true,
             showOnPost: false,
             seila: "sdadsa",
           },

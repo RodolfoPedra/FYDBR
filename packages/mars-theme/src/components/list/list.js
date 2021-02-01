@@ -2,13 +2,14 @@ import React from "react";
 import { connect, styled, decode } from "frontity";
 import Item from "./list-item";
 import Pagination from "./pagination";
+import cardNews from "../card-news";
 
 const List = ({ state }) => {
-  console.log("state do list: ", state);
+  // console.log("state do list: ", state);
 
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
-  console.log("data list: ", data);
+  // console.log("data list: ", data);
   return (
     <Container>
       {/* If the list is a taxonomy, we render a title. */}

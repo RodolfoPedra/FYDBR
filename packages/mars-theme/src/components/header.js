@@ -42,24 +42,20 @@ const Container = styled.div`
 `;
 
 const LogoFYD = styled.img`
-  width: 25vw;
-  max-width: 550px;
+  width: 28.75vw;
+  max-width: 552px;
   min-width: 260px;
-  /* height: 20vh;
-  max-height: 20vh;
-  min-height: 8vh; */
 `;
 
 const DescriptionSite = styled.div`
-  width: 816px;
-  max-width: 816px;
-  height: 70px;
+  width: 987px;
+  max-width: 987px;
 
   p {
+    font-family: DINProCondMedium;
     color: #000;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 31px;
+    line-height: 36px;
   }
 `;
 
