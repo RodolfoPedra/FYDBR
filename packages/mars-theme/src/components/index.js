@@ -42,13 +42,13 @@ const Theme = ({ state }) => {
       on the type of URL we are in. */}
       <Main>
         <Switch>
-          <Home when={data.isArchive}></Home>
-        </Switch>
-        {/* <Switch>
-          <Loading when={data.isFetching} />
-          <List when={data.isArchive} />
+          {/* <Loading when={data.isFetching} /> */}
+          <Home when={true}></Home>
           <Post when={data.isPostType} />
           <PageError when={data.isError} />
+        </Switch>
+        {/* <Switch>
+          <List when={data.isArchive} />
         </Switch> */}
       </Main>
     </>

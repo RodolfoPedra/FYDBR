@@ -2,7 +2,6 @@ import React from "react";
 import { connect, styled, decode } from "frontity";
 import Item from "./list-item";
 import Pagination from "./pagination";
-import cardNews from "../card-news";
 
 const List = ({ state }) => {
   // console.log("state do list: ", state);
@@ -13,19 +12,19 @@ const List = ({ state }) => {
   return (
     <Container>
       {/* If the list is a taxonomy, we render a title. */}
-      {data.isTaxonomy && (
+      {/* {data.isTaxonomy && (
         <Header>
           {data.taxonomy}:{" "}
           <b>{decode(state.source[data.taxonomy][data.id].name)}</b>
         </Header>
-      )}
+      )} */}
 
       {/* If the list is for a specific author, we render a title. */}
-      {data.isAuthor && (
+      {/* {data.isAuthor && (
         <Header>
           Author: <b>{decode(state.source.author[data.id].name)}</b>
         </Header>
-      )}
+      )} */}
 
       {/* Iterate over the items of the list. */}
       {data.items.map(({ type, id }) => {

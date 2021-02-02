@@ -5,10 +5,10 @@ import FeaturedMedia from "../components/featured-media";
 import { Container } from "../assets/css-in-js/GlobalStyles";
 
 const cardnews = ({ state, item }) => {
-  // console.log("log do cardnews: ", item);
+  // console.log("log do cardnews: ", state, item);
   const author = state.source.author[item.author];
-  // const date = new Date(item.date);
-  const category = state.source.category[item.categories][0];
+  const date = new Date(item.date);
+  const category = state.source.category[item.categories];
 
   return (
     <>
@@ -21,8 +21,10 @@ const cardnews = ({ state, item }) => {
               </Link>
             )}
           </TumbCard>
-          <TypeCard>{category}</TypeCard>
-          <TittleNews>{item.title.rendered}</TittleNews>
+          <TypeCard link={category.link}>{category.name}</TypeCard>
+          <Link link={item.link}>
+            <TittleNews>{item.title.rendered}</TittleNews>
+          </Link>
           <DateNews>{date.toDateString()}</DateNews>
         </ContainerCard>
       </ExtContainer>
@@ -56,11 +58,11 @@ const TumbCard = styled.div`
   background: #dbdbdb;
 `;
 
-const TypeCard = styled.span`
+const TypeCard = styled(Link)`
   height: 20px;
   background: #c10000;
   border-radius: 20px;
-  color: #fff;
+  color: #fff !important;
   font-size: 14px;
   text-transform: uppercase;
   font-weight: bold;
