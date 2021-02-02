@@ -1,7 +1,6 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import { Container } from "../../assets/css-in-js/GlobalStyles";
-import CardNews from "../card-news";
 import Pagination from "../list/pagination";
 
 const home = ({ state, libraries }) => {
@@ -9,7 +8,7 @@ const home = ({ state, libraries }) => {
 
   const data = state.source.get(state.router.link);
 
-  console.log("home data: ", data);
+  console.log("home data: ", data.items);
   return (
     <>
       <StyledContainer>

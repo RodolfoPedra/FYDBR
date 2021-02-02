@@ -21,7 +21,7 @@ const blogListHandler = {
     const pages = getTotalPages(response);
     const requests = [];
 
-    for (let page = 2; page <= pages; page++) {
+    for (let page = 1; page <= pages; page++) {
       requests.push(
         api.get({
           endpoint: "posts",
@@ -81,8 +81,9 @@ const marsTheme = {
    */
   actions: {
     theme: {
-      init: ({ libraries }) => {
+      init: ({ state, libraries }) => {
         libraries.source.handlers.push(blogListHandler);
+        state.source.mydatas = blogListHandler;
       },
       toggleMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = !state.theme.isMobileMenuOpen;
