@@ -47,11 +47,13 @@ const home = ({ state, libraries }) => {
             return <CardNews key={item.id} item={item} />;
           })}
         </BlockCards>
-        {Array.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11).map((page) => (
-          <BtnPagination onClick={() => setPagination(page)}>
-            {page}
-          </BtnPagination>
-        ))}
+        <BlockPagination>
+          {Array.of(1, 2, 3).map((page) => (
+            <BtnPagination onClick={() => setPagination(page)}>
+              {page}
+            </BtnPagination>
+          ))}
+        </BlockPagination>
         <h1>{totalPages}</h1>
       </StyledContainer>
     </>
@@ -63,11 +65,19 @@ export default connect(home);
 const StyledContainer = styled(Container)`
   padding: 60px 24px;
   margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const BlockCards = styled.section`
   display: flex;
   justify-content: space-between;
+  align-items: start;
+  width: 100%;
+`;
+
+const BlockPagination = styled.div`
+  display: flex;
   width: 100%;
 `;
 
@@ -79,6 +89,8 @@ const BtnPagination = styled.button`
   color: #fff;
   font-family: DINProCondBold;
   font-size: 25px;
+  margin: 1rem;
+  cursor: pointer;
 `;
 
 const ContainerList = styled.section`

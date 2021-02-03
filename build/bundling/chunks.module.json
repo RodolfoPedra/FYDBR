@@ -2,19 +2,19 @@
   "errors": [],
   "warnings": [],
   "version": "4.46.0",
-  "hash": "364890518ff2c8cc69b8",
+  "hash": "adf5339bddf18409a967",
   "publicPath": "/static/",
   "outputPath": "C:\\Users\\rodol\\OneDrive\\Documentos\\Projetos\\freelas\\FYDBR - Marina\\FYDBR\\build\\static",
   "assetsByChunkName": {
     "fydbr": [
       "fydbr.module.js",
-      "fydbr.a69939b3c766f33cd58f.hot-update.js"
+      "fydbr.79553dc09f440208b8b1.hot-update.js"
     ],
     "list": "list.module.js"
   },
   "assets": [
     {
-      "name": "a69939b3c766f33cd58f.hot-update.json",
+      "name": "79553dc09f440208b8b1.hot-update.json",
       "size": 47,
       "chunks": [],
       "chunkNames": [],
@@ -57,8 +57,8 @@
       "emitted": false
     },
     {
-      "name": "fydbr.a69939b3c766f33cd58f.hot-update.js",
-      "size": 33381,
+      "name": "fydbr.79553dc09f440208b8b1.hot-update.js",
+      "size": 40078,
       "chunks": [
         "fydbr"
       ],
@@ -73,7 +73,7 @@
     },
     {
       "name": "fydbr.module.js",
-      "size": 8284445,
+      "size": 8291185,
       "chunks": [
         "fydbr"
       ],
@@ -112,7 +112,7 @@
       ],
       "assets": [
         "fydbr.module.js",
-        "fydbr.a69939b3c766f33cd58f.hot-update.js"
+        "fydbr.79553dc09f440208b8b1.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -125,7 +125,7 @@
       ],
       "assets": [
         "fydbr.module.js",
-        "fydbr.a69939b3c766f33cd58f.hot-update.js"
+        "fydbr.79553dc09f440208b8b1.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
