@@ -109,6 +109,8 @@ const LookLoad = styled.div`
     width: 60%;
     height: 34px;
     border-radius: 19px;
+    outline: none;
+    padding: 0 0.7rem;
   }
 `;
 

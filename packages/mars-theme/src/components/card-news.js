@@ -68,7 +68,7 @@ const TypeCard = styled(Link)`
   text-transform: uppercase;
   font-weight: bold;
   padding: 3px 8px 2px 8px;
-  margin-top: 2px;
+  margin-top: 5px;
 `;
 
 const TittleNews = styled.p`

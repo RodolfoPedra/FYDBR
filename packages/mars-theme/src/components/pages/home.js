@@ -49,7 +49,7 @@ const home = ({ state, libraries }) => {
         </BlockCards>
         <BlockPagination>
           {Array.of(1, 2, 3).map((page) => (
-            <BtnPagination onClick={() => setPagination(page)}>
+            <BtnPagination index={pagination} key={page} onClick={() => setPagination(page)}>
               {page}
             </BtnPagination>
           ))}
@@ -82,7 +82,7 @@ const BlockPagination = styled.div`
 `;
 
 const BtnPagination = styled.button`
-  background: #c10000;
+  background: #DBDBDB;
   width: 2.03125vw;
   height: 2.03125vw;
   border-radius: 50%;
@@ -90,7 +90,12 @@ const BtnPagination = styled.button`
   font-family: DINProCondBold;
   font-size: 25px;
   margin: 1rem;
+  outline: none;
   cursor: pointer;
+
+  &:nth-child(${(props) => props.index}) {
+    background: #c10000;
+  }
 `;
 
 const ContainerList = styled.section`
