@@ -3,6 +3,7 @@ import { connect, styled } from "frontity";
 import Image from "@frontity/components/image";
 
 const FeaturedMedia = ({ state, id }) => {
+  // console.log("feat med: ", state, id);
   const media = state.source.attachment[id];
 
   if (!media) return null;

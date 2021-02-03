@@ -1,0 +1,20 @@
+webpackHotUpdate("fydbr",{
+
+/***/ "./packages/mars-theme/src/components/card-news.js":
+false,
+
+/***/ "./packages/mars-theme/src/components/list/pagination.js":
+false,
+
+/***/ "./packages/mars-theme/src/components/pages/home.js":
+/*!**********************************************************!*\
+  !*** ./packages/mars-theme/src/components/pages/home.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nSyntaxError: C:\\\\Users\\\\rodol\\\\OneDrive\\\\Documentos\\\\Projetos\\\\freelas\\\\FYDBR - Marina\\\\FYDBR\\\\packages\\\\mars-theme\\\\src\\\\components\\\\pages\\\\home.js: 'return' outside of function (65:2)\\n\\n\\u001b[0m \\u001b[90m 63 | \\u001b[39m  }\\u001b[0m\\n\\u001b[0m \\u001b[90m 64 | \\u001b[39m\\u001b[0m\\n\\u001b[0m\\u001b[31m\\u001b[1m>\\u001b[22m\\u001b[39m\\u001b[90m 65 | \\u001b[39m  \\u001b[36mreturn\\u001b[39m (\\u001b[0m\\n\\u001b[0m \\u001b[90m    | \\u001b[39m  \\u001b[31m\\u001b[1m^\\u001b[22m\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 66 | \\u001b[39m    \\u001b[33m<\\u001b[39m\\u001b[33m>\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 67 | \\u001b[39m      \\u001b[33m<\\u001b[39m\\u001b[33mStyledContainer\\u001b[39m\\u001b[33m>\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 68 | \\u001b[39m        \\u001b[33m<\\u001b[39m\\u001b[33mBlockCards\\u001b[39m\\u001b[33m>\\u001b[39m\\u001b[0m\\n    at Object._raise (C:\\\\Users\\\\rodol\\\\OneDrive\\\\Documentos\\\\Projetos\\\\freelas\\\\FYDBR - Marina\\\\FYDBR\\\\node_modules\\\\@babel\\\\parser\\\\src\\\\parser\\\\error.js:60:45)\\n    at Object.raiseWithData (C:\\\\Users\\\\rodol\\\\OneDrive\\\\Documentos\\\\Projetos\\\\freelas\\\\FYDBR - Marina\\\\FYDBR\\\\node_modules\\\\@babel\\\\parser\\\\src\\\\parser\\\\error.js:55:17)\\n    at Object.raise (C:\\\\Users\\\\rodol\\\\OneDrive\\\\Documentos\\\\Projetos\\\\freelas\\\\FYDBR - Marina\\\\FYDBR\\\\node_modules\\\\@babel\\\\parser\\\\src\\\\parser\\\\error.js:39:17)\\n    at Object.parseReturnStatement (C:\\\\Users\\\\rodol\\\\OneDrive\\\\Documentos\\\\Projetos\\\\freelas\\\\FYDBR - Marina\\\\FYDBR\\\\node_modules\\\\@babel\\\\parser\\\\src\\\\parser\\\\statement.js:569:12)\\n    at Object.parseStatementContent (C:\\\\Users\\\\rodol\\\\OneDrive\\\\Documentos\\\\Projetos\\\\freelas\\\\FYDBR - Marina\\\\FYDBR\\\\node_modules\\\\@babel\\\\parser\\\\src\\\\parser\\\\statement.js:203:21)\\n    at Object.parseStatement (C:\\\\Users\\\\rodol\\\\OneDrive\\\\Documentos\\\\Projetos\\\\freelas\\\\FYDBR - Marina\\\\FYDBR\\\\node_modules\\\\@babel\\\\parser\\\\src\\\\parser\\\\statement.js:157:17)\\n    at Object.parseBlockOrModuleBlockBody (C:\\\\Users\\\\rodol\\\\OneDrive\\\\Documentos\\\\Projetos\\\\freelas\\\\FYDBR - Marina\\\\FYDBR\\\\node_modules\\\\@babel\\\\parser\\\\src\\\\parser\\\\statement.js:874:25)\\n    at Object.parseBlockBody (C:\\\\Users\\\\rodol\\\\OneDrive\\\\Documentos\\\\Projetos\\\\freelas\\\\FYDBR - Marina\\\\FYDBR\\\\node_modules\\\\@babel\\\\parser\\\\src\\\\parser\\\\statement.js:850:10)\\n    at Object.parseTopLevel (C:\\\\Users\\\\rodol\\\\OneDrive\\\\Documentos\\\\Projetos\\\\freelas\\\\FYDBR - Marina\\\\FYDBR\\\\node_modules\\\\@babel\\\\parser\\\\src\\\\parser\\\\statement.js:61:10)\\n    at Object.parse (C:\\\\Users\\\\rodol\\\\OneDrive\\\\Documentos\\\\Projetos\\\\freelas\\\\FYDBR - Marina\\\\FYDBR\\\\node_modules\\\\@babel\\\\parser\\\\src\\\\parser\\\\index.js:59:10)\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuL3BhY2thZ2VzL21hcnMtdGhlbWUvc3JjL2NvbXBvbmVudHMvcGFnZXMvaG9tZS5qcy5qcyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./packages/mars-theme/src/components/pages/home.js\n");
+
+/***/ })
+
+})

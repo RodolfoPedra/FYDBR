@@ -55,6 +55,7 @@ const ContainerCard = styled.article`
 const TumbCard = styled.div`
   width: 100%;
   height: 236px;
+  min-height: 236px;
   background: #dbdbdb;
 `;
 

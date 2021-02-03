@@ -1,26 +1,58 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import { Container } from "../../assets/css-in-js/GlobalStyles";
-import Pagination from "../list/pagination";
+// import Pagination from "../list/pagination";
+import CardNews from "../card-news";
 
 const home = ({ state, libraries }) => {
-  console.log("home state: ", state);
+  const [posts, setPosts] = React.useState(null);
+  const [pagination, setPagination] = React.useState(1);
+  const [totalPages, setTotalPages] = React.useState([]);
+  // console.log("home state: ", state);
 
   const data = state.source.get(state.router.link);
+  // console.log("home data: ", data.items);
+  React.useEffect(() => {
+    pag4(libraries);
+  }, [pagination]);
 
-  console.log("home data: ", data.items);
+  async function pag4(lib) {
+    const per_page = 4;
+    const page = pagination;
+    const { api, populate, getTotalPages } = libraries.source;
+    const response = await api.get({
+      endpoint: "posts",
+      params: {
+        per_page,
+        page,
+      },
+    });
+    const firstItems = await populate({
+      response,
+      state,
+    });
+    const pages = getTotalPages(response);
+    setTotalPages(pages);
+    setPosts(firstItems);
+  }
+
+  if (posts === null) return null;
   return (
     <>
       <StyledContainer>
         <BlockCards>
-          {/* {data.items.map(({ type, id }) => {
+          {posts.map(({ type, id }) => {
             const item = state.source[type][id];
             // Render one Item component for each one.
             return <CardNews key={item.id} item={item} />;
-          })} */}
-          <h1>HOME 4</h1>
+          })}
         </BlockCards>
-        <Pagination />
+        {Array.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11).map((page) => (
+          <BtnPagination onClick={() => setPagination(page)}>
+            {page}
+          </BtnPagination>
+        ))}
+        <h1>{totalPages}</h1>
       </StyledContainer>
     </>
   );
@@ -37,6 +69,16 @@ const BlockCards = styled.section`
   display: flex;
   justify-content: space-between;
   width: 100%;
+`;
+
+const BtnPagination = styled.button`
+  background: #c10000;
+  width: 2.03125vw;
+  height: 2.03125vw;
+  border-radius: 50%;
+  color: #fff;
+  font-family: DINProCondBold;
+  font-size: 25px;
 `;
 
 const ContainerList = styled.section`

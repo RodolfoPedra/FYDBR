@@ -69,7 +69,7 @@ const marsTheme = {
       menu: [],
       isMobileMenuOpen: false,
       featured: {
-        showOnList: false,
+        showOnList: true,
         showOnPost: false,
       },
     },
@@ -81,10 +81,9 @@ const marsTheme = {
    */
   actions: {
     theme: {
-      init: ({ state, libraries }) => {
-        libraries.source.handlers.push(blogListHandler);
-        state.source.mydatas = blogListHandler;
-      },
+      // init: ({ libraries }) => {
+      //   libraries.source.handlers.push(blogListHandler);
+      // },
       toggleMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = !state.theme.isMobileMenuOpen;
       },
