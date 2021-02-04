@@ -68,7 +68,8 @@ const HeadContainer = styled.div`
 
 const Main = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   background: #fff;
   /* background-image: linear-gradient(
     180deg,

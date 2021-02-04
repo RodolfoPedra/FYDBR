@@ -3,8 +3,9 @@ import { connect, styled } from "frontity";
 import { Container } from "../../assets/css-in-js/GlobalStyles";
 // import Pagination from "../list/pagination";
 import CardNews from "../card-news";
+import ArtWeapon from "../art-weapon";
 
-const home = ({ state, libraries }) => {
+const Home = ({ state, libraries }) => {
   const [posts, setPosts] = React.useState(null);
   const [pagination, setPagination] = React.useState(1);
   const [totalPages, setTotalPages] = React.useState([]);
@@ -48,23 +49,27 @@ const home = ({ state, libraries }) => {
           })}
         </BlockCards>
         <BlockPagination>
-          {Array.of(1, 2, 3).map((page) => (
-            <BtnPagination index={pagination} key={page} onClick={() => setPagination(page)}>
+          {Array.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11).map((page) => (
+            <BtnPagination
+              index={pagination}
+              key={page}
+              onClick={() => setPagination(page)}
+            >
               {page}
             </BtnPagination>
           ))}
         </BlockPagination>
         <h1>{totalPages}</h1>
       </StyledContainer>
+      <ArtWeapon />
     </>
   );
 };
 
-export default connect(home);
+export default connect(Home);
 
 const StyledContainer = styled(Container)`
-  padding: 60px 24px;
-  margin-bottom: 60px;
+  padding: 60px 24px 28px 24px;
   display: flex;
   flex-direction: column;
 `;
@@ -82,7 +87,7 @@ const BlockPagination = styled.div`
 `;
 
 const BtnPagination = styled.button`
-  background: #DBDBDB;
+  background: #dbdbdb;
   width: 2.03125vw;
   height: 2.03125vw;
   border-radius: 50%;
@@ -93,7 +98,7 @@ const BtnPagination = styled.button`
   outline: none;
   cursor: pointer;
 
-  &:nth-child(${(props) => props.index}) {
+  &:nth-of-type(${(props) => props.index}) {
     background: #c10000;
   }
 `;
@@ -101,7 +106,6 @@ const BtnPagination = styled.button`
 const ContainerList = styled.section`
   width: 100%;
   margin: 0;
-  /* padding: 24px; */
   list-style: none;
 `;
 
