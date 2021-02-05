@@ -2,70 +2,31 @@ import React from "react";
 import { connect, styled } from "frontity";
 import { Container } from "../assets/css-in-js/GlobalStyles";
 
-const InfoWeapon = () => {
+const InfoWeapon = ({ state, libraries, id, link }) => {
+  const author = state.source.author[id].name;
+
+  React.useEffect(async () => {
+    const { api, populate } = libraries.source;
+    const response = await api.get({
+      endpoint: "posts",
+      params: {
+        author: id,
+        per_page: 2,
+      },
+    });
+    const firstItems = await populate({
+      response,
+      state,
+    });
+    console.log("posts per author: ", firstItems);
+  }, []);
 
   return (
     <>
       <ContainerInfoWeapon>
         <Avatar />
         <ContainerInfos>
-          <h2>Fydbr </h2>
-          <h3>Especial danger days:</h3>
-          <p>
-            fique por dentro do quadrinho “Killjoys” em nossa resenha exclusiva
-          </p>
-          <h3>Especial danger days:</h3>
-          <p>
-            fique por dentro do quadrinho “Killjoys” em nossa resenha exclusiva
-          </p>
-        </ContainerInfos>
-      </ContainerInfoWeapon>
-      <ContainerInfoWeapon>
-        <Avatar />
-        <ContainerInfos>
-          <h2>Fydbr </h2>
-          <h3>Especial danger days:</h3>
-          <p>
-            fique por dentro do quadrinho “Killjoys” em nossa resenha exclusiva
-          </p>
-          <h3>Especial danger days:</h3>
-          <p>
-            fique por dentro do quadrinho “Killjoys” em nossa resenha exclusiva
-          </p>
-        </ContainerInfos>
-      </ContainerInfoWeapon>
-      <ContainerInfoWeapon>
-        <Avatar />
-        <ContainerInfos>
-          <h2>Fydbr </h2>
-          <h3>Especial danger days:</h3>
-          <p>
-            fique por dentro do quadrinho “Killjoys” em nossa resenha exclusiva
-          </p>
-          <h3>Especial danger days:</h3>
-          <p>
-            fique por dentro do quadrinho “Killjoys” em nossa resenha exclusiva
-          </p>
-        </ContainerInfos>
-      </ContainerInfoWeapon>
-      <ContainerInfoWeapon>
-        <Avatar />
-        <ContainerInfos>
-          <h2>Fydbr </h2>
-          <h3>Especial danger days:</h3>
-          <p>
-            fique por dentro do quadrinho “Killjoys” em nossa resenha exclusiva
-          </p>
-          <h3>Especial danger days:</h3>
-          <p>
-            fique por dentro do quadrinho “Killjoys” em nossa resenha exclusiva
-          </p>
-        </ContainerInfos>
-      </ContainerInfoWeapon>
-      <ContainerInfoWeapon>
-        <Avatar />
-        <ContainerInfos>
-          <h2>Fydbr </h2>
+          <h2>{author}</h2>
           <h3>Especial danger days:</h3>
           <p>
             fique por dentro do quadrinho “Killjoys” em nossa resenha exclusiva
@@ -81,43 +42,41 @@ const InfoWeapon = () => {
 };
 
 const ArtWeapon = ({ state, libraries }) => {
-  const author = 45068819;
-
-  const resStateMod = state.source.get({
-    url: "https://fakeyourdeathbr.com",
-    params: {
-      author
-    },
-  });
-
-  console.log('res author mod: ', resStateMod);
+  const [arrAuthors, setArrAuthors] = React.useState(null);
+  console.log("state weapon: ", state);
 
   React.useEffect(async () => {
-    // , 182061584, 182066183, 182066187];
-    const { api, populate, getTotalPages } = libraries.source;
+    const { api, populate } = libraries.source;
     const response = await api.get({
-      endpoint: "posts",
-      params: {
-        author
-      },
+      endpoint: "users",
     });
     const firstItems = await populate({
       response,
       state,
     });
-    console.log("api author: ", firstItems);
+    setArrAuthors(firstItems);
   }, []);
 
-  console.log("art: ", state);
-  const postAuthor = state.source.get(state.source.author[45068819].link);
-  console.log("art post author: ", postAuthor);
+  React.useEffect(() => {
+    if (arrAuthors) {
+      console.log("users: ", arrAuthors);
+    }
+  }, [arrAuthors]);
 
   return (
     <>
       <ExtContainer>
         <StyledContainer>
           <TittleArtWeapon>Art is the weapon</TittleArtWeapon>
-          <InfoWeapon></InfoWeapon>
+          {arrAuthors &&
+            arrAuthors.map((author) => (
+              <InfoWeapon
+                id={author.id}
+                link={author.link}
+                libraries={libraries}
+                state={state}
+              />
+            ))}
         </StyledContainer>
       </ExtContainer>
     </>
@@ -142,8 +101,6 @@ const StyledContainer = styled(Container)`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  /* flex-direction: column;
-  align-items: flex-start; */
 `;
 
 const TittleArtWeapon = styled.h1`
@@ -155,28 +112,28 @@ const TittleArtWeapon = styled.h1`
 `;
 
 const ContainerInfoWeapon = styled.div`
-	flex-grow: 1;
+  flex-grow: 1;
   width: 33%;
   max-width: 33%;
-	height: 240px;
+  height: 240px;
   display: flex;
-  &:nth-of-type(-n+3) {
+  &:nth-of-type(-n + 3) {
     padding-top: 60px;
     margin-bottom: 16px;
   }
 
   @media screen and (max-width: 1550px) {
-   &:nth-of-type(-n+3) {
-    margin-bottom: 60px;
-  }
+    &:nth-of-type(-n + 3) {
+      margin-bottom: 60px;
+    }
   }
 
   @media screen and (max-width: 1020px) {
-   &:nth-of-type(-n+3) {
-    width: 50%;
-    max-width: 50%;
-    margin-bottom: 100px;
-  }
+    &:nth-of-type(-n + 3) {
+      width: 50%;
+      max-width: 50%;
+      margin-bottom: 100px;
+    }
   }
 `;
 
@@ -200,7 +157,7 @@ const ContainerInfos = styled.div`
     font-family: DINProLight;
     padding-top: 4px;
     padding-bottom: 12px;
-   }
+  }
 `;
 
 const Avatar = styled.img`

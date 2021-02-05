@@ -49,15 +49,17 @@ const Home = ({ state, libraries }) => {
           })}
         </BlockCards>
         <BlockPagination>
-          {Array.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11).map((page) => (
-            <BtnPagination
-              index={pagination}
-              key={page}
-              onClick={() => setPagination(page)}
-            >
-              {page}
-            </BtnPagination>
-          ))}
+          {Array(totalPages)
+            .fill()
+            .map((page, index) => (
+              <BtnPagination
+                index={pagination}
+                key={index}
+                onClick={() => setPagination(index + 1)}
+              >
+                {index + 1}
+              </BtnPagination>
+            ))}
         </BlockPagination>
         <h1>{totalPages}</h1>
       </StyledContainer>

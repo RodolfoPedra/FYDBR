@@ -2,36 +2,20 @@
   "errors": [],
   "warnings": [],
   "version": "4.46.0",
-  "hash": "0e52a8d7b6aec5714a0b",
+  "hash": "36533b5a4ae330d77506",
   "publicPath": "/static/",
-  "outputPath": "C:\\Users\\rodol\\Documents\\Rodolfo\\Projetos\\FYDBR\\fydbr\\build\\static",
+  "outputPath": "C:\\Users\\rodol\\OneDrive\\Documentos\\Projetos\\freelas\\FYDBR - Marina\\FYDBR\\build\\static",
   "assetsByChunkName": {
-    "fydbr": [
-      "fydbr.module.js",
-      "fydbr.cd8767e9d1b6ee2432ae.hot-update.js"
-    ],
+    "fydbr": "fydbr.module.js",
     "list": "list.module.js"
   },
   "assets": [
-    {
-      "name": "cd8767e9d1b6ee2432ae.hot-update.json",
-      "size": 47,
-      "chunks": [],
-      "chunkNames": [],
-      "info": {
-        "hotModuleReplacement": true,
-        "immutable": true
-      },
-      "emitted": false
-    },
     {
       "name": "fonts/DINPro-Cond.woff2",
       "size": 31088,
       "chunks": [],
       "chunkNames": [],
-      "info": {
-        "sourceFilename": "packages/mars-theme/src/assets/fonts/DINPro-Cond.woff2"
-      },
+      "info": {},
       "emitted": false
     },
     {
@@ -39,9 +23,7 @@
       "size": 30700,
       "chunks": [],
       "chunkNames": [],
-      "info": {
-        "sourceFilename": "packages/mars-theme/src/assets/fonts/DINPro-CondBold.woff2"
-      },
+      "info": {},
       "emitted": false
     },
     {
@@ -49,9 +31,7 @@
       "size": 31372,
       "chunks": [],
       "chunkNames": [],
-      "info": {
-        "sourceFilename": "packages/mars-theme/src/assets/fonts/DINPro-CondMedium.woff2"
-      },
+      "info": {},
       "emitted": false
     },
     {
@@ -59,29 +39,12 @@
       "size": 33956,
       "chunks": [],
       "chunkNames": [],
-      "info": {
-        "sourceFilename": "packages/mars-theme/src/assets/fonts/DINPro-Light.woff2"
-      },
-      "emitted": false
-    },
-    {
-      "name": "fydbr.cd8767e9d1b6ee2432ae.hot-update.js",
-      "size": 71537,
-      "chunks": [
-        "fydbr"
-      ],
-      "chunkNames": [
-        "fydbr"
-      ],
-      "info": {
-        "hotModuleReplacement": true,
-        "immutable": true
-      },
+      "info": {},
       "emitted": false
     },
     {
       "name": "fydbr.module.js",
-      "size": 9566854,
+      "size": 8349380,
       "chunks": [
         "fydbr"
       ],
@@ -96,14 +59,12 @@
       "size": 75752,
       "chunks": [],
       "chunkNames": [],
-      "info": {
-        "sourceFilename": "packages/mars-theme/src/assets/svg/Logo_final_morcego.svg"
-      },
+      "info": {},
       "emitted": false
     },
     {
       "name": "list.module.js",
-      "size": 52213,
+      "size": 52824,
       "chunks": [
         "list"
       ],
@@ -121,8 +82,7 @@
         "fydbr"
       ],
       "assets": [
-        "fydbr.module.js",
-        "fydbr.cd8767e9d1b6ee2432ae.hot-update.js"
+        "fydbr.module.js"
       ],
       "children": {},
       "childAssets": {}
@@ -134,8 +94,7 @@
         "fydbr"
       ],
       "assets": [
-        "fydbr.module.js",
-        "fydbr.cd8767e9d1b6ee2432ae.hot-update.js"
+        "fydbr.module.js"
       ],
       "children": {},
       "childAssets": {}
@@ -151,55 +110,6 @@
       "childAssets": {}
     }
   },
-  "chunks": [
-    {
-      "id": "fydbr",
-      "rendered": true,
-      "initial": true,
-      "entry": true,
-      "size": 2623341,
-      "names": [
-        "fydbr"
-      ],
-      "files": [
-        "fydbr.module.js",
-        "fydbr.cd8767e9d1b6ee2432ae.hot-update.js"
-      ],
-      "hash": "855f55dc33d5ae42e04a",
-      "siblings": [],
-      "parents": [],
-      "children": [
-        "list"
-      ],
-      "childrenByOrder": {},
-      "modules": [],
-      "filteredModules": 0,
-      "origins": []
-    },
-    {
-      "id": "list",
-      "rendered": false,
-      "initial": false,
-      "entry": false,
-      "size": 33471,
-      "names": [
-        "list"
-      ],
-      "files": [
-        "list.module.js"
-      ],
-      "hash": "e8482be5ea6bd19b005d",
-      "siblings": [],
-      "parents": [
-        "fydbr"
-      ],
-      "children": [],
-      "childrenByOrder": {},
-      "modules": [],
-      "filteredModules": 0,
-      "origins": []
-    }
-  ],
   "logging": {
     "webpack.buildChunkGraph.visitModules": {
       "entries": [],
@@ -207,6 +117,5 @@
       "debug": false
     }
   },
-  "children": [],
-  "generator": "loadable-components"
+  "children": []
 }
