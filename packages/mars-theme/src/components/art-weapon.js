@@ -1,9 +1,21 @@
 import React from "react";
-import { connect, styled } from "frontity";
+import { connect, styled, useConnect } from "frontity";
 import { Container } from "../assets/css-in-js/GlobalStyles";
 
-const InfoWeapon = ({ state, libraries, id, link }) => {
+const InfoWeapon = ({ id, link }) => {
+  const [postAuthor, setPostAuthor] = React.useState(null);
+  const [title1, setTitle1] = React.useState(null);
+  const [subtitle1, setSubtitle1] = React.useState(null);
+  const [title2, setTitle2] = React.useState(null);
+  const [subtitle2, setSubtitle2] = React.useState(null);
+
+  const {state, libraries} = useConnect();
   const author = state.source.author[id].name;
+  const post1 = state.source.post[id];
+  // const post2 = state.source.post[id];
+
+  window.post = state.source;
+  console.log('id post: ', id);
 
   React.useEffect(async () => {
     const { api, populate } = libraries.source;
@@ -14,26 +26,42 @@ const InfoWeapon = ({ state, libraries, id, link }) => {
         per_page: 2,
       },
     });
-    const firstItems = await populate({
+    const postsPerAuthor = await populate({
       response,
       state,
     });
-    console.log("posts per author: ", firstItems);
+    console.log("posts per author: ", postsPerAuthor);
+    setPostAuthor(postsPerAuthor);
   }, []);
 
+  React.useEffect(() => {
+    if(postAuthor) {
+      const resTitle1 = state.source.post[postAuthor[0].id].title.rendered;
+      const resTitle2 = state.source.post[postAuthor[1].id].title.rendered;
+      setTitle1(resTitle1.split(':')[0]);
+      setSubtitle1(resTitle1.split(':')[1]);
+      setTitle2(resTitle2.split(':')[0]);
+      setSubtitle2(resTitle2.split(':')[1]);
+
+      const postLink = state.source.post[postAuthor[0].id];
+      console.log('post link', );
+    }
+  },[postAuthor])
+
+  // if(title1 == null || subtitle1 == null) return null;
   return (
     <>
       <ContainerInfoWeapon>
-        <Avatar />
+          <Avatar src={state.source.author[id].avatar_urls[96]}/>
         <ContainerInfos>
           <h2>{author}</h2>
-          <h3>Especial danger days:</h3>
+          <h3>{title1}:</h3>
           <p>
-            fique por dentro do quadrinho “Killjoys” em nossa resenha exclusiva
+            {subtitle1}
           </p>
-          <h3>Especial danger days:</h3>
+          <h3>{title2}:</h3>
           <p>
-            fique por dentro do quadrinho “Killjoys” em nossa resenha exclusiva
+            {subtitle2}
           </p>
         </ContainerInfos>
       </ContainerInfoWeapon>
@@ -73,8 +101,6 @@ const ArtWeapon = ({ state, libraries }) => {
               <InfoWeapon
                 id={author.id}
                 link={author.link}
-                libraries={libraries}
-                state={state}
               />
             ))}
         </StyledContainer>
@@ -169,6 +195,9 @@ const Avatar = styled.img`
   height: 3.75vw;
   min-width: 46px;
   min-height: 46px;
-  background: #fff;
-  border-radius: 50px;
+  border-radius: 50%;
 `;
+
+// const BorderAvatar = styled.div`
+//     box-shadow: 0 0 0 -5px #000;
+// `;
