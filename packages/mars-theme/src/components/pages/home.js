@@ -1,9 +1,9 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import { Container } from "../../assets/css-in-js/GlobalStyles";
-// import Pagination from "../list/pagination";
 import CardNews from "../card-news";
 import ArtWeapon from "../art-weapon";
+import PreachAll from "../preach-all";
 
 const Home = ({ state, libraries }) => {
   const [posts, setPosts] = React.useState(null);
@@ -64,6 +64,7 @@ const Home = ({ state, libraries }) => {
         <h1>{totalPages}</h1>
       </StyledContainer>
       <ArtWeapon />
+      <PreachAll />
     </>
   );
 };

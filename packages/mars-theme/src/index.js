@@ -6,7 +6,7 @@ import link from "@frontity/html2react/processors/link";
 const blogListHandler = {
   pattern: "/",
   func: async ({ route, params, state, libraries }) => {
-    const per_page = 4;
+    const per_page = 100;
     const { api, populate, getTotalPages } = libraries.source;
     const response = await api.get({
       endpoint: "posts",
@@ -18,35 +18,35 @@ const blogListHandler = {
       response,
       state,
     });
-    const pages = getTotalPages(response);
-    const requests = [];
+    // const pages = getTotalPages(response);
+    // const requests = [];
 
-    for (let page = 1; page <= pages; page++) {
-      requests.push(
-        api.get({
-          endpoint: "posts",
-          params: {
-            per_page,
-            page,
-          },
-        })
-      );
-    }
-    const responses = await Promise.all(requests);
+    // for (let page = 1; page <= pages; page++) {
+    //   requests.push(
+    //     api.get({
+    //       endpoint: "posts",
+    //       params: {
+    //         per_page,
+    //         page,
+    //       },
+    //     })
+    //   );
+    // }
+    // const responses = await Promise.all(requests);
 
-    const newItems = await Promise.all(
-      responses.map((response) => populate({ state, response }))
-    );
-    const items = firstItems.concat(newItems);
+    // const newItems = await Promise.all(
+    //   responses.map((response) => populate({ state, response }))
+    // );
+    // const items = firstItems.concat(newItems);
 
-    // 4. add data to source
-    const currentPageData = state.source.data["/"];
-    const newPageData = {
-      isBlogList: true,
-      items,
-    };
+    // // 4. add data to source
+    // const currentPageData = state.source.data["/"];
+    // const newPageData = {
+    //   isBlogList: true,
+    //   items,
+    // };
 
-    Object.assign(currentPageData, newPageData);
+    // Object.assign(currentPageData, newPageData);
   },
 };
 
@@ -81,9 +81,12 @@ const marsTheme = {
    */
   actions: {
     theme: {
-      // init: ({ libraries }) => {
-      //   libraries.source.handlers.push(blogListHandler);
+      // beforeSSR: ({ state, libraries }) => {
+      //   console.log("Gonna SSR this page");
       // },
+      init: ({ libraries }) => {
+        libraries.source.handlers.push(blogListHandler);
+      },
       toggleMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = !state.theme.isMobileMenuOpen;
       },

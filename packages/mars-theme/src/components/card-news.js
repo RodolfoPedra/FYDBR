@@ -8,8 +8,6 @@ const cardnews = ({ state, item }) => {
   const author = state.source.author[item.author];
   const date = new Date(item.date);
   const category = state.source.category[item.categories];
-  console.log("item card: ", item);
-  // console.log("category: ", category);
 
   return (
     <>

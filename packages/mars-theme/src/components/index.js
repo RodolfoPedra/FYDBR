@@ -19,7 +19,7 @@ const Theme = ({ state }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
 
-  // console.log("data index: ", data);
+  console.log("data index: ", data, state);
 
   return (
     <>
@@ -45,7 +45,7 @@ const Theme = ({ state }) => {
       <Main>
         <Switch>
           <Loading when={data.isFetching} />
-          <Home when={data.isArchive}></Home>
+          <Home when={data.isHome}></Home>
           <Post when={data.isPostType} />
           <PageError when={data.isError} />
         </Switch>

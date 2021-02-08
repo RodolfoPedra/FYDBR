@@ -2,7 +2,7 @@ const settings = {
   name: "fydbr",
   state: {
     frontity: {
-      url: "https://test.frontity.org",
+      url: "https://fakeyourdeathbr.com",
       title: "Test Frontity Blog",
       description: "WordPress installation for Frontity development",
     },
