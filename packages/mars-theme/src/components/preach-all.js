@@ -1,10 +1,10 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
+import { Container } from "../assets/css-in-js/GlobalStyles";
 
 const PreachAll = ({ state, libraries }) => {
-  const data = state.source.get(state.router.link);
-  console.log("preach state: ", data);
+
   const [totalPosts, setTotalPosts] = React.useState(null);
   const [names, setNames] = React.useState(null);
   const [posts, setPosts] = React.useState(null);
@@ -37,10 +37,8 @@ const PreachAll = ({ state, libraries }) => {
       "https://fakeyourdeathbr.com/wp-json/wp/v2/comments"
     );
     const jsonComments = await response.json();
-    // console.log("resj ", jsonComments);
 
     const commentFilter = jsonComments.filter((item, index) => index <= 2);
-    // console.log("comment filter: ", commentFilter);
 
     const postsReduce = commentFilter.reduce((acc, { post }) => {
       return {
@@ -48,36 +46,38 @@ const PreachAll = ({ state, libraries }) => {
         [post]: state.source.post[post],
       };
     }, {});
-    console.log("dentro do getC: ", postsReduce);
     setPosts(postsReduce);
     setNames(commentFilter);
     // setPosts(postComment);
   }
 
-  console.log("posts reduce ext: ", names, posts);
   return (
     <>
+    <Container>
       {names &&
         names.map(({ author_name, author_avatar_urls, post }, index) => (
           <>
-            <ContainerInfoWeapon>
-              <Avatar src={author_avatar_urls[96]} />
-              <ContainerInfos>
+            <ContainerInfo key={author_name}>
+              <Avatar key={post} src={author_avatar_urls[96]} />
+              <ContainerPost key={author_name}>
                 <h1>{author_name}</h1>
                 <Link link={posts[post].link}>
                   <p>{`${posts[post].title.rendered.substring(0, 30)}...`}</p>
                 </Link>
-              </ContainerInfos>
-            </ContainerInfoWeapon>
+              </ContainerPost>
+            </ContainerInfo>
           </>
         ))}
+    </Container>
     </>
   );
 };
 
 export default connect(PreachAll);
 
-const ContainerInfoWeapon = styled.div`
+const StyledContainer = styled(Container)``;
+
+const ContainerInfo = styled.div`
   flex-grow: 1;
   width: 33%;
   max-width: 33%;
@@ -103,8 +103,8 @@ const ContainerInfoWeapon = styled.div`
   }
 `;
 
-const ContainerInfos = styled.div`
-  width: 23vw;
+const ContainerPost = styled.div`
+  width: 100%;
   padding-left: 14px;
   font-size: 21px;
   h1 {
@@ -128,12 +128,12 @@ const ContainerInfos = styled.div`
 
 const Avatar = styled.img`
   @media screen and (min-width: 1900px) {
-    width: 72px;
-    height: 72px;
+    width: 42px;
+    height: 42px;
   }
-  width: 3.75vw;
-  height: 3.75vw;
-  min-width: 46px;
-  min-height: 46px;
+  width: 2vw;
+  height: 2vw;
+  min-width: 26px;
+  min-height: 26px;
   border-radius: 50%;
 `;
