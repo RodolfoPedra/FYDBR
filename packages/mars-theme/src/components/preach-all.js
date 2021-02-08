@@ -5,6 +5,7 @@ import { Container } from "../assets/css-in-js/GlobalStyles";
 
 const PreachAll = ({ state, libraries }) => {
 
+  window.statePreach = state;
   const [totalPosts, setTotalPosts] = React.useState(null);
   const [names, setNames] = React.useState(null);
   const [posts, setPosts] = React.useState(null);
@@ -29,7 +30,9 @@ const PreachAll = ({ state, libraries }) => {
   }
 
   React.useEffect(() => {
-    getComments();
+    setTimeout(() => {
+      getComments();
+    },2000)
   }, [totalPosts]);
 
   async function getComments() {
@@ -48,7 +51,6 @@ const PreachAll = ({ state, libraries }) => {
     }, {});
     setPosts(postsReduce);
     setNames(commentFilter);
-    // setPosts(postComment);
   }
 
   return (

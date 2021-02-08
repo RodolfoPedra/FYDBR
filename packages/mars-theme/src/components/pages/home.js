@@ -9,7 +9,6 @@ const Home = ({ state, libraries }) => {
   const [posts, setPosts] = React.useState(null);
   const [pagination, setPagination] = React.useState(1);
   const [totalPages, setTotalPages] = React.useState([]);
-  // console.log("home state: ", state);
 
   const data = state.source.get(state.router.link);
   // console.log("home data: ", data.items);

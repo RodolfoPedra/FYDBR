@@ -5,7 +5,7 @@ import FeaturedMedia from "../components/featured-media";
 import { Container } from "../assets/css-in-js/GlobalStyles";
 
 const cardnews = ({ state, item }) => {
-  const author = state.source.author[item.author];
+  console.log('state card: ', state, item);
   const date = new Date(item.date);
   const category = state.source.category[item.categories];
 

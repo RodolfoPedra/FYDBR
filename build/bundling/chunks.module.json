@@ -2,19 +2,19 @@
   "errors": [],
   "warnings": [],
   "version": "4.46.0",
-  "hash": "332a4d043926f2e1b5ef",
+  "hash": "7180dcaf70e8da8f7bf2",
   "publicPath": "/static/",
   "outputPath": "C:\\Users\\rodol\\Documents\\Rodolfo\\Projetos\\FYDBR\\fydbr\\build\\static",
   "assetsByChunkName": {
     "fydbr": [
       "fydbr.module.js",
-      "fydbr.6fde47d7fa32e1ed3c37.hot-update.js"
+      "fydbr.9a7566dfc6a16d5842a4.hot-update.js"
     ],
     "list": "list.module.js"
   },
   "assets": [
     {
-      "name": "6fde47d7fa32e1ed3c37.hot-update.json",
+      "name": "9a7566dfc6a16d5842a4.hot-update.json",
       "size": 47,
       "chunks": [],
       "chunkNames": [],
@@ -65,8 +65,8 @@
       "emitted": false
     },
     {
-      "name": "fydbr.6fde47d7fa32e1ed3c37.hot-update.js",
-      "size": 37651,
+      "name": "fydbr.9a7566dfc6a16d5842a4.hot-update.js",
+      "size": 38822,
       "chunks": [
         "fydbr"
       ],
@@ -81,7 +81,7 @@
     },
     {
       "name": "fydbr.module.js",
-      "size": 9581817,
+      "size": 9582316,
       "chunks": [
         "fydbr"
       ],
@@ -122,7 +122,7 @@
       ],
       "assets": [
         "fydbr.module.js",
-        "fydbr.6fde47d7fa32e1ed3c37.hot-update.js"
+        "fydbr.9a7566dfc6a16d5842a4.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -135,7 +135,7 @@
       ],
       "assets": [
         "fydbr.module.js",
-        "fydbr.6fde47d7fa32e1ed3c37.hot-update.js"
+        "fydbr.9a7566dfc6a16d5842a4.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -157,15 +157,15 @@
       "rendered": true,
       "initial": true,
       "entry": true,
-      "size": 2622499,
+      "size": 2622901,
       "names": [
         "fydbr"
       ],
       "files": [
         "fydbr.module.js",
-        "fydbr.6fde47d7fa32e1ed3c37.hot-update.js"
+        "fydbr.9a7566dfc6a16d5842a4.hot-update.js"
       ],
-      "hash": "8ac0415b2a6952abb8e7",
+      "hash": "b14177c22084e9b6cdcf",
       "siblings": [],
       "parents": [],
       "children": [
