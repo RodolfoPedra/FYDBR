@@ -11,10 +11,9 @@
     "npm": ">=6.0.0"
   },
   "scripts": {
-    "start": "node build/server.js",
+    "start": "frontity dev",
     "build": "frontity build",
-    "serve": "frontity serve",
-    "postinstall": "frontity serve"
+    "serve": "frontity serve"
   },
   "prettier": {},
   "dependencies": {
@@ -24,6 +23,7 @@
     "@frontity/tiny-router": "^1.2.4",
     "@frontity/wp-source": "^1.10.0",
     "frontity": "^1.13.0",
+    "html2react": "^1.2.1",
     "react-icons": "^4.1.0"
   }
 }

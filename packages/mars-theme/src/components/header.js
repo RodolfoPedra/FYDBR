@@ -4,7 +4,6 @@ import Link from "./link";
 import Nav from "./nav";
 import MobileMenu from "./menu";
 import logoFydMorcegos from "../assets/svg/Logo_final_morcego.svg";
-import Carousel from "./carousel";
 
 const Header = ({ state }) => {
   return (
@@ -23,7 +22,6 @@ const Header = ({ state }) => {
           </p>
         </DescriptionSite>
       </Container>
-      <Carousel></Carousel>
     </>
   );
 };
@@ -58,17 +56,3 @@ const DescriptionSite = styled.div`
     line-height: 36px;
   }
 `;
-
-// const Title = styled.h2`
-//   margin: 0;
-//   margin-bottom: 16px;
-// `;
-
-// const Description = styled.h4`
-//   margin: 0;
-//   color: rgba(255, 255, 255, 0.7);
-// `;
-
-// const StyledLink = styled(Link)`
-//   text-decoration: none;
-// `;

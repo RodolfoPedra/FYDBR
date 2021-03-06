@@ -39,7 +39,7 @@ const ArtWeapon = ({ state, libraries }) => {
 
 export default connect(ArtWeapon);
 
-const ExtContainer = styled(Container)`
+const ExtContainer = styled.section`
   width: 100%;
   background: #000;
   padding: 0;

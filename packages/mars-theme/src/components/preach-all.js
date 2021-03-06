@@ -2,9 +2,9 @@ import React from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
 import { Container } from "../assets/css-in-js/GlobalStyles";
+import IconMessage from "../assets/svg/icons/mensagem.svg";
 
 const PreachAll = ({ state, libraries }) => {
-
   const [totalPosts, setTotalPosts] = React.useState(null);
   const [names, setNames] = React.useState(null);
   const [posts, setPosts] = React.useState(null);
@@ -53,29 +53,54 @@ const PreachAll = ({ state, libraries }) => {
 
   return (
     <>
-    <Container>
-      {names &&
-        names.map(({ author_name, author_avatar_urls, post }, index) => (
-          <>
-            <ContainerInfo key={author_name}>
-              <Avatar key={post} src={author_avatar_urls[96]} />
-              <ContainerPost key={author_name}>
-                <h1>{author_name}</h1>
-                <Link link={posts[post].link}>
-                  <p>{`${posts[post].title.rendered.substring(0, 30)}...`}</p>
-                </Link>
-              </ContainerPost>
-            </ContainerInfo>
-          </>
-        ))}
-    </Container>
+      <StyledContainer>
+        <PreachTitle>
+          <h1>Preach all you want</h1>
+          <Icon src={IconMessage} />
+        </PreachTitle>
+        {names &&
+          names.map(({ author_name, author_avatar_urls, post }, index) => (
+            <>
+              <ContainerInfo key={author_name}>
+                <Avatar key={post} src={author_avatar_urls[96]} />
+                <ContainerPost key={author_name}>
+                  <h1>{author_name}</h1>
+                  <Link link={posts[post].link}>
+                    <p>{`${posts[post].title.rendered.substring(0, 30)}...`}</p>
+                  </Link>
+                </ContainerPost>
+              </ContainerInfo>
+            </>
+          ))}
+      </StyledContainer>
     </>
   );
 };
 
 export default connect(PreachAll);
 
-const StyledContainer = styled(Container)``;
+const StyledContainer = styled(Container)`
+  position: relative;
+  display: flex;
+  align-items: baseline;
+`;
+
+const PreachTitle = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 290px;
+  left: 20px;
+  top: 20px;
+
+  h1 {
+    font-family: DINProCondBold;
+    font-size: 35px;
+  }
+`;
+
+const Icon = styled.img``;
 
 const ContainerInfo = styled.div`
   flex-grow: 1;
@@ -83,6 +108,7 @@ const ContainerInfo = styled.div`
   max-width: 33%;
   height: 66px;
   display: flex;
+  align-items: baseline !important;
   &:nth-of-type(-n + 3) {
     padding-top: 60px;
     margin-bottom: 16px;

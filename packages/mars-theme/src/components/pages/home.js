@@ -2,17 +2,13 @@ import React from "react";
 import { connect, styled } from "frontity";
 import { Container } from "../../assets/css-in-js/GlobalStyles";
 import CardNews from "../card-news";
-import ArtWeapon from "../art-weapon";
-import PreachAll from "../preach-all";
+import Carousel from "../carousel";
 
 const Home = ({ state, libraries }) => {
   const [posts, setPosts] = React.useState(null);
   const [pagination, setPagination] = React.useState(1);
   const [totalPages, setTotalPages] = React.useState([]);
-  // console.log("home state: ", state);
 
-  const data = state.source.get(state.router.link);
-  // console.log("home data: ", data.items);
   React.useEffect(() => {
     pag4(libraries);
   }, [pagination]);
@@ -40,11 +36,11 @@ const Home = ({ state, libraries }) => {
   if (posts === null) return null;
   return (
     <>
+      <Carousel></Carousel>
       <StyledContainer>
         <BlockCards>
           {posts.map(({ type, id }) => {
             const item = state.source[type][id];
-            // Render one Item component for each one.
             return <CardNews key={item.id} item={item} />;
           })}
         </BlockCards>
@@ -63,8 +59,6 @@ const Home = ({ state, libraries }) => {
         </BlockPagination>
         <h1>{totalPages}</h1>
       </StyledContainer>
-      <ArtWeapon />
-      <PreachAll />
     </>
   );
 };

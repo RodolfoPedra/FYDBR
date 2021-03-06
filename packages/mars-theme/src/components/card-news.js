@@ -46,7 +46,6 @@ const ExtContainer = styled.div`
 
 const ContainerCard = styled.article`
   width: 18.69vw;
-  /* height: 346px; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;

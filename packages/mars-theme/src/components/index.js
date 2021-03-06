@@ -1,5 +1,6 @@
 import React from "react";
 import { Global, css, connect, styled, Head } from "frontity";
+import { globalStyles } from "../assets/css-in-js/GlobalStyles";
 import Switch from "@frontity/components/switch";
 import Header from "./header";
 import List from "./list";
@@ -7,9 +8,11 @@ import Post from "./post";
 import Loading from "./loading";
 import Title from "./title";
 import PageError from "./page-error";
-import { globalStyles } from "../assets/css-in-js/GlobalStyles";
 import Home from "./pages/home";
 import FontFace from "../assets/css-in-js/FontFace";
+import Footer from "./footer";
+import Manifesto from "./pages/manifesto";
+import Sobre from "./pages/sobre";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -18,6 +21,7 @@ import FontFace from "../assets/css-in-js/FontFace";
 const Theme = ({ state }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
+  console.log("data data: ", data);
 
   return (
     <>
@@ -43,7 +47,9 @@ const Theme = ({ state }) => {
       <Main>
         <Switch>
           <Loading when={data.isFetching} />
-          <Home when={data.isHome}></Home>
+          <Home when={data.link == "/"}></Home>
+          <Manifesto when={data.link == "/manifesto/"}></Manifesto>
+          <Sobre when={data.link == "/about/"}></Sobre>
           <Post when={data.isPostType} />
           <PageError when={data.isError} />
         </Switch>
@@ -51,6 +57,8 @@ const Theme = ({ state }) => {
           <List when={data.isArchive} />
         </Switch> */}
       </Main>
+
+      <Footer />
     </>
   );
 };
@@ -69,9 +77,4 @@ const Main = styled.div`
   flex-direction: column;
   align-items: center;
   background: #fff;
-  /* background-image: linear-gradient(
-    180deg,
-    rgba(66, 174, 228, 0.1),
-    rgba(66, 174, 228, 0)
-  ); */
 `;
