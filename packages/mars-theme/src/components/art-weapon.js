@@ -1,7 +1,15 @@
 import React from "react";
 import { connect, styled, useConnect } from "frontity";
-import { Container } from "../assets/css-in-js/GlobalStyles";
+import { Container } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import InfoWeapon from "./info-weapon";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+}));
 
 const ArtWeapon = ({ state, libraries }) => {
   const [arrAuthors, setArrAuthors] = React.useState(null);
@@ -27,10 +35,14 @@ const ArtWeapon = ({ state, libraries }) => {
       <ExtContainer>
         <StyledContainer>
           <TittleArtWeapon>Art is the weapon</TittleArtWeapon>
-          {arrAuthors &&
-            arrAuthors.map((author) => (
-              <InfoWeapon key={author.id} id={author.id} link={author.link} />
-            ))}
+          <Grid container>
+            {arrAuthors &&
+              arrAuthors.map((author) => (
+                <Grid item xs={12} sm={6} md={6} lg={4}>
+                  <InfoWeapon id={author.id} link={author.link} />
+                </Grid>
+              ))}
+          </Grid>
         </StyledContainer>
       </ExtContainer>
     </>
@@ -42,24 +54,19 @@ export default connect(ArtWeapon);
 const ExtContainer = styled.section`
   width: 100%;
   background: #000;
-  padding: 0;
+  padding: 40px;
   display: flex;
   justify-content: center;
 `;
 
 const StyledContainer = styled(Container)`
   position: relative;
-  height: 100%;
   color: #fff;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 `;
 
 const TittleArtWeapon = styled.h1`
-  position: absolute;
-  top: 30px;
-  left: 24px;
   font-family: DINProCondBold;
   font-size: 35px;
 `;

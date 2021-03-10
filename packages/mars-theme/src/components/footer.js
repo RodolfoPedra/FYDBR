@@ -17,7 +17,7 @@ const Footer = () => {
       <StyledContainer>
         <ArtWeapon />
         <Partners />
-        <PreachAll />
+        {/* <PreachAll /> */}
       </StyledContainer>
       <ExtContainer>
         <Gotas>

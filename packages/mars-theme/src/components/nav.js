@@ -1,6 +1,8 @@
 import React from "react";
 import { IoLogoTwitter } from "react-icons/io5";
 import { connect, styled } from "frontity";
+import { Container } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import Link from "./link";
 
 /**
@@ -9,15 +11,9 @@ import Link from "./link";
  * It renders the navigation links
  */
 
-// const [dstate, setDstate] = React.useState(null);
-
-// React.useEffect(() => {
-//   console.log("state nav: ", dstate);
-// }, [dstate]);
-
 const Nav = ({ state }) => (
   <DivExtContainer>
-    <DivContainer>
+    <StyledContainer maxWidth="lg">
       <NavContainer>
         {state.theme.menu.map(([name, link]) => {
           // Check if the link matched the current page url
@@ -42,7 +38,7 @@ const Nav = ({ state }) => (
         <p>Look and Load</p>
         <input type="text" />
       </LookLoad>
-    </DivContainer>
+    </StyledContainer>
   </DivExtContainer>
 );
 
@@ -51,30 +47,24 @@ export default connect(Nav);
 const DivExtContainer = styled.div`
   width: 100%;
   background: #000;
-  display: flex;
-  justify-content: center;
+  position: fixed;
+  z-index: 10;
 `;
 
-const DivContainer = styled.div`
-  width: 90%;
+const StyledContainer = styled(Container)`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 24px;
-  @media screen and (max-width: 560px) {
-    display: none;
-  }
 `;
 
 const NavContainer = styled.nav`
   list-style: none;
   display: flex;
   align-items: center;
-  /* max-width: 1598px; */
   height: 68px;
   box-sizing: border-box;
   cursor: pointer !important;
-  /* padding: 0 24px; */
   margin: 0;
   overflow-x: auto;
 `;
@@ -106,7 +96,7 @@ const LookLoad = styled.div`
 
   input {
     background: #fff;
-    width: 60%;
+    width: 200px;
     height: 34px;
     border-radius: 19px;
     outline: none;

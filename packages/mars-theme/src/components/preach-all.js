@@ -1,7 +1,8 @@
 import React from "react";
 import { connect, styled } from "frontity";
+import { Container } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import Link from "./link";
-import { Container } from "../assets/css-in-js/GlobalStyles";
 import IconMessage from "../assets/svg/icons/mensagem.svg";
 
 const PreachAll = ({ state, libraries }) => {
@@ -58,20 +59,25 @@ const PreachAll = ({ state, libraries }) => {
           <h1>Preach all you want</h1>
           <Icon src={IconMessage} />
         </PreachTitle>
-        {names &&
-          names.map(({ author_name, author_avatar_urls, post }, index) => (
-            <>
-              <ContainerInfo key={author_name}>
-                <Avatar key={post} src={author_avatar_urls[96]} />
-                <ContainerPost key={author_name}>
-                  <h1>{author_name}</h1>
-                  <Link link={posts[post].link}>
-                    <p>{`${posts[post].title.rendered.substring(0, 30)}...`}</p>
-                  </Link>
-                </ContainerPost>
-              </ContainerInfo>
-            </>
-          ))}
+        <Grid container>
+          {names &&
+            names.map(({ author_name, author_avatar_urls, post }, index) => (
+              <>
+                <ContainerInfo item xs={12} md={4} key={author_name}>
+                  <Avatar key={post} src={author_avatar_urls[96]} />
+                  <ContainerPost key={author_name}>
+                    <h1>{author_name}</h1>
+                    <Link link={posts[post].link}>
+                      <p>{`${posts[post].title.rendered.substring(
+                        0,
+                        30
+                      )}...`}</p>
+                    </Link>
+                  </ContainerPost>
+                </ContainerInfo>
+              </>
+            ))}
+        </Grid>
       </StyledContainer>
     </>
   );
@@ -83,16 +89,17 @@ const StyledContainer = styled(Container)`
   position: relative;
   display: flex;
   align-items: baseline;
+  padding: 40px;
 `;
 
 const PreachTitle = styled.div`
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 290px;
-  left: 20px;
-  top: 20px;
+  text-transform: uppercase;
+  width: 335px;
+  /* left: 20px;
+  top: 20px; */
 
   h1 {
     font-family: DINProCondBold;
@@ -102,31 +109,10 @@ const PreachTitle = styled.div`
 
 const Icon = styled.img``;
 
-const ContainerInfo = styled.div`
-  flex-grow: 1;
-  width: 33%;
-  max-width: 33%;
-  height: 66px;
+const ContainerInfo = styled(Grid)`
   display: flex;
-  align-items: baseline !important;
-  &:nth-of-type(-n + 3) {
-    padding-top: 60px;
-    margin-bottom: 16px;
-  }
-
-  @media screen and (max-width: 1550px) {
-    &:nth-of-type(-n + 3) {
-      margin-bottom: 60px;
-    }
-  }
-
-  @media screen and (max-width: 1020px) {
-    &:nth-of-type(-n + 3) {
-      width: 50%;
-      max-width: 50%;
-      margin-bottom: 100px;
-    }
-  }
+  align-items: end;
+  padding: 20px 0;
 `;
 
 const ContainerPost = styled.div`
@@ -153,13 +139,7 @@ const ContainerPost = styled.div`
 `;
 
 const Avatar = styled.img`
-  @media screen and (min-width: 1900px) {
-    width: 42px;
-    height: 42px;
-  }
-  width: 2vw;
-  height: 2vw;
-  min-width: 26px;
-  min-height: 26px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
 `;

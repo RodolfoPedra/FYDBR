@@ -1,5 +1,7 @@
 import React from "react";
 import { connect, styled } from "frontity";
+import { Container } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import Link from "./link";
 import Nav from "./nav";
 import MobileMenu from "./menu";
@@ -9,19 +11,25 @@ const Header = ({ state }) => {
   return (
     <>
       <Nav />
-      <Container>
+      <StyledContainer maxWidth="lg">
+        <Grid container alignItems="center" justify="space-between">
+          <Grid item xs={12} md={3} md={4}>
+            <LogoFYD src={logoFydMorcegos}></LogoFYD>
+          </Grid>
+          <Grid item xs={12} md={9} lg={8}>
+            <DescriptionSite>
+              <p>
+                Sua fonte oficial de notícias do My Chemical Romance no Brasil
+                reconhecida pela Warner Music BR.
+                <br />
+                Nos acompanhe nas redes sociais e fique ligado nas novidades da
+                banda.
+              </p>
+            </DescriptionSite>
+          </Grid>
+        </Grid>
         <MobileMenu />
-        <LogoFYD src={logoFydMorcegos}></LogoFYD>
-        <DescriptionSite>
-          <p>
-            Sua fonte oficial de notícias do My Chemical Romance no Brasil
-            reconhecida pela Warner Music BR.
-            <br />
-            Nos acompanhe nas redes sociais e fique ligado nas novidades da
-            banda.
-          </p>
-        </DescriptionSite>
-      </Container>
+      </StyledContainer>
     </>
   );
 };
@@ -29,26 +37,19 @@ const Header = ({ state }) => {
 // Connect the Header component to get access to the `state` in it's `props`
 export default connect(Header);
 
-const Container = styled.div`
-  width: 90%;
+const StyledContainer = styled(Container)`
   box-sizing: border-box;
-  padding: 24px;
+  margin-top: 68px;
+  padding: 24px 0;
   color: #000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 `;
 
 const LogoFYD = styled.img`
-  width: 28.75vw;
-  max-width: 552px;
-  min-width: 260px;
+  width: 100%;
+  max-width: 550px;
 `;
 
 const DescriptionSite = styled.div`
-  width: 987px;
-  max-width: 987px;
-
   p {
     font-family: DINProCondMedium;
     color: #000;

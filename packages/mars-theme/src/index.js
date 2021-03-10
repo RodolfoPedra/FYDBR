@@ -84,9 +84,9 @@ const marsTheme = {
       // beforeSSR: ({ state, libraries }) => {
       //   console.log("Gonna SSR this page");
       // },
-      init: ({ libraries }) => {
-        libraries.source.handlers.push(blogListHandler);
-      },
+      // init: ({ libraries }) => {
+      //   libraries.source.handlers.push(blogListHandler);
+      // },
       toggleMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = !state.theme.isMobileMenuOpen;
       },

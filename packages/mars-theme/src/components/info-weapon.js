@@ -10,7 +10,7 @@ const InfoWeapon = ({ state, libraries, id, link }) => {
   const [subtitle2, setSubtitle2] = React.useState(null);
 
   const { api, populate } = libraries.source;
-  const author = state.source.author[id].name;
+  const author = state.source.author[id];
 
   React.useEffect(() => {
     getPostAuthor();
@@ -33,12 +33,18 @@ const InfoWeapon = ({ state, libraries, id, link }) => {
 
   React.useEffect(() => {
     if (postAuthor) {
-      const resTitle1 = state.source.post[postAuthor[0].id].title.rendered;
-      const resTitle2 = state.source.post[postAuthor[1].id].title.rendered;
-      setTitle1(resTitle1.split(":")[0]);
-      setSubtitle1(resTitle1.split(":")[1]);
-      setTitle2(resTitle2.split(":")[0]);
-      setSubtitle2(resTitle2.split(":")[1]);
+      if (postAuthor.length == 1) {
+        const resTitle1 = state.source.post[postAuthor[0].id].title.rendered;
+        setTitle1(resTitle1.split(":")[0]);
+        setSubtitle1(resTitle1.split(":")[1]);
+      } else {
+        const resTitle1 = state.source.post[postAuthor[0].id].title.rendered;
+        const resTitle2 = state.source.post[postAuthor[1].id].title.rendered;
+        setTitle1(resTitle1.split(":")[0]);
+        setSubtitle1(resTitle1.split(":")[1]);
+        setTitle2(resTitle2.split(":")[0]);
+        setSubtitle2(resTitle2.split(":")[1]);
+      }
     }
   }, [postAuthor]);
 
@@ -48,15 +54,19 @@ const InfoWeapon = ({ state, libraries, id, link }) => {
       <ContainerInfoWeapon>
         <Avatar src={state.source.author[id].avatar_urls[96]} />
         <ContainerInfos>
-          <h2>{author}</h2>
+          <Link link={author.link}>
+            <h2>{author.name}</h2>
+          </Link>
           <Link link={postAuthor[0].link}>
             <h3>{title1}:</h3>
             <p>{subtitle1}</p>
           </Link>
-          <Link link={postAuthor[1].link}>
-            <h3>{title2}:</h3>
-            <p>{subtitle2}</p>
-          </Link>
+          {postAuthor[1] && (
+            <Link link={postAuthor[1].link}>
+              <h3>{title2}:</h3>
+              <p>{subtitle2}</p>
+            </Link>
+          )}
         </ContainerInfos>
       </ContainerInfoWeapon>
     </>
@@ -66,33 +76,23 @@ const InfoWeapon = ({ state, libraries, id, link }) => {
 export default connect(InfoWeapon);
 
 const ContainerInfoWeapon = styled.div`
-  flex-grow: 1;
-  width: 33%;
-  max-width: 33%;
-  height: 240px;
+  width: 310px;
   display: flex;
   &:nth-of-type(-n + 3) {
-    padding-top: 60px;
-    margin-bottom: 16px;
+    padding-top: 40px;
   }
 
-  @media screen and (max-width: 1550px) {
-    &:nth-of-type(-n + 3) {
-      margin-bottom: 60px;
-    }
+  @media (min-width: 1260px) {
+    width: 360px;
   }
 
-  @media screen and (max-width: 1020px) {
-    &:nth-of-type(-n + 3) {
-      width: 50%;
-      max-width: 50%;
-      margin-bottom: 100px;
-    }
+  @media (max-width: 520px) {
+    width: 100%;
   }
 `;
 
 const ContainerInfos = styled.div`
-  width: 23vw;
+  width: 100%;
   padding-left: 14px;
   font-size: 21px;
   h2 {
@@ -115,13 +115,11 @@ const ContainerInfos = styled.div`
 `;
 
 const Avatar = styled.img`
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
   @media screen and (min-width: 1900px) {
     width: 72px;
     height: 72px;
   }
-  width: 3.75vw;
-  height: 3.75vw;
-  min-width: 46px;
-  min-height: 46px;
-  border-radius: 50%;
 `;

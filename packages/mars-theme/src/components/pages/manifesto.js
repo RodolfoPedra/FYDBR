@@ -58,7 +58,7 @@ const StyledContainer = styled(Container)`
 
 const Img = styled.img`
   width: 100%;
-  height: 32vh;
+  /* height: 32vh; */
 `;
 
 const Paragrafo = styled.p`

@@ -27,7 +27,7 @@ const MenuModal = ({ state }) => {
 
 const MenuOverlay = styled.div`
   background-color: #1f38c5;
-  width: 100vw;
+  width: 70vw;
   height: 100vh;
   overflow: hidden auto;
   position: fixed;
@@ -41,7 +41,7 @@ const MenuContent = styled.div`
 `;
 
 const MenuLink = styled(Link)`
-  width: 100%;
+  width: 70%;
   display: inline-block;
   outline: 0;
   font-size: 20px;

@@ -5,23 +5,43 @@ import FeaturedMedia from "../components/featured-media";
 import { Container } from "../assets/css-in-js/GlobalStyles";
 
 const cardnews = ({ state, item }) => {
+  const [src, setSrc] = React.useState(null);
+  const [category, setCategory] = React.useState(null);
   const author = state.source.author[item.author];
   const date = new Date(item.date);
-  const category = state.source.category[item.categories];
+
+  React.useEffect(() => {
+    (async () => {
+      const resFeature = await fetch(
+        `https://fakeyourdeathbr.com/wp-json/wp/v2/media/${item.featured_media}`
+      );
+      const jsonFeature = await resFeature.json();
+
+      const resCategory = await fetch(
+        `https://fakeyourdeathbr.com/wp-json/wp/v2/categories`
+      );
+      const jsonCategory = await resCategory.json();
+      const myCategory = jsonCategory.filter(
+        (category) => category.id == item.categories[0]
+      );
+      setCategory(myCategory);
+      setSrc(jsonFeature.guid.rendered);
+    })();
+  }, [item]);
 
   return (
     <>
       <ExtContainer>
         <ContainerCard>
-          <TumbCard>
-            {state.theme.featured.showOnList && (
-              <Link link={item.link}>
-                <FeaturedMedia id={item.featured_media} />
-              </Link>
-            )}
-          </TumbCard>
+          {state.theme.featured.showOnList && (
+            <Link link={item.link}>
+              <TumbCard srcImg={src} />
+            </Link>
+          )}
           {category && (
-            <TypeCard link={category.link}>{category.name}</TypeCard>
+            <TypeCard link={`/${category[0].taxonomy}/${category[0].slug}`}>
+              {category[0].name}
+            </TypeCard>
           )}
           <Link link={item.link}>
             <TittleNews>{item.title.rendered}</TittleNews>
@@ -36,27 +56,32 @@ const cardnews = ({ state, item }) => {
 export default connect(cardnews);
 
 const ExtContainer = styled.div`
-  width: 90%;
+  width: 300px;
   box-sizing: border-box;
-  color: #000;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: none;
+  padding: 20px 0;
+  margin: 0 auto;
 `;
 
 const ContainerCard = styled.article`
-  width: 18.69vw;
+  width: 300px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+  border: none;
 `;
 
 const TumbCard = styled.div`
-  width: 100%;
+  width: 300px;
   height: 236px;
   min-height: 236px;
-  background: #dbdbdb;
+  background: url(${(props) => props.srcImg}) no-repeat center;
+  background-size: cover;
+  border: none;
 `;
 
 const TypeCard = styled(Link)`

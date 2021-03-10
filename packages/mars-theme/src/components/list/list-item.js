@@ -1,5 +1,7 @@
 import React from "react";
 import { connect, styled } from "frontity";
+import { Container } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import Link from "../link";
 import FeaturedMedia from "../featured-media";
 
@@ -11,77 +13,85 @@ import FeaturedMedia from "../featured-media";
  * - Author: name of author and published date
  * - FeaturedMedia: the featured image/video of the post
  */
-const Item = ({ state, item }) => {
-  // console.log("log do list item: ", item);
+const Item = ({ state, item, index }) => {
+  console.log("index item: ", index);
+  const category = state.source.category[item.categories[0]];
   const author = state.source.author[item.author];
   const date = new Date(item.date);
-
+  const xs = index == 0 || index == 1 ? 6 : "auto";
+  console.log("xs: ", xs);
   return (
-    <article>
-      <Link link={item.link}>
-        <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
-      </Link>
-
-      <div>
-        {/* If the post has an author, we render a clickable author text. */}
-        {author && (
-          <StyledLink link={author.link}>
-            <AuthorName>
-              By <b>{author.name}</b>
-            </AuthorName>
-          </StyledLink>
-        )}
-        <PublishDate>
-          {" "}
-          on <b>{date.toDateString()}</b>
-        </PublishDate>
-      </div>
-
-      {/*
-       * If the want to show featured media in the
-       * list of featured posts, we render the media.
-       */}
+    <ContainerCard propXs={xs}>
       {state.theme.featured.showOnList && (
         <Link link={item.link}>
-          <FeaturedMedia id={item.featured_media} />
+          <TumbCard propXs={xs}>
+            <FeaturedMedia id={item.featured_media} />
+          </TumbCard>
         </Link>
       )}
-
-      {/* If the post has an excerpt (short summary text), we render it */}
-      {/* {item.excerpt && (
-        <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
-      )} */}
-    </article>
+      {category && <TypeCard link={category.link}>{category.name}</TypeCard>}
+      <Link link={item.link}>
+        <TittleNews>{item.title.rendered}</TittleNews>
+      </Link>
+      <DateNews>{date.toDateString()}</DateNews>
+    </ContainerCard>
   );
 };
 
 // Connect the Item to gain access to `state` as a prop
 export default connect(Item);
 
-const Title = styled.h1`
-  font-size: 2rem;
-  color: rgba(12, 17, 43);
-  margin: 0;
-  padding-top: 24px;
-  padding-bottom: 8px;
+const ExtContainer = styled.div`
   box-sizing: border-box;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
 `;
 
-const AuthorName = styled.span`
-  color: rgba(12, 17, 43, 0.9);
-  font-size: 0.9em;
+const ContainerCard = styled(Grid)`
+  width: ${(props) => (props.propXs == 6 ? "100%" : "300px")};
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  border: none;
+  @media (max-width: 520px) {
+    margin: 0 auto;
+  }
 `;
 
-const StyledLink = styled(Link)`
-  padding: 15px 0;
+const TumbCard = styled.div`
+  width: ${(props) => (props.propXs == 6 ? "99%" : "300px")};
+  height: ${(props) => (props.propXs == 6 ? "452px" : "236px")};
+  min-height: 236px;
+  background: url(${(props) => props.srcImg}) no-repeat center;
+  background-size: cover;
+  border: none;
 `;
 
-const PublishDate = styled.span`
-  color: rgba(12, 17, 43, 0.9);
-  font-size: 0.9em;
+const TypeCard = styled(Link)`
+  height: 20px;
+  background: #c10000;
+  border-radius: 20px;
+  color: #fff !important;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 3px 8px 2px 8px;
+  margin-top: 5px;
 `;
 
-const Excerpt = styled.div`
-  line-height: 1.6em;
-  color: rgba(12, 17, 43, 0.8);
+const TittleNews = styled.p`
+  font-family: DINProCondBold;
+  font-size: 28px;
+  line-height: 33px;
+  text-align: inherit;
+  text-transform: uppercase;
+`;
+
+const DateNews = styled.span`
+  font-size: 16px;
+  color: #aaaaaa;
 `;

@@ -19,9 +19,10 @@ import Sobre from "./pages/sobre";
  * in roots.
  */
 const Theme = ({ state }) => {
+  // https://fakeyourdeathbr.com/wp-json/wp/v2/categories
+
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
-  console.log("data data: ", data);
 
   return (
     <>
@@ -47,15 +48,13 @@ const Theme = ({ state }) => {
       <Main>
         <Switch>
           <Loading when={data.isFetching} />
-          <Home when={data.link == "/"}></Home>
+          <Home when={data.isHome}></Home>
           <Manifesto when={data.link == "/manifesto/"}></Manifesto>
           <Sobre when={data.link == "/about/"}></Sobre>
+          <List when={data.isArchive} />
           <Post when={data.isPostType} />
           <PageError when={data.isError} />
         </Switch>
-        {/* <Switch>
-          <List when={data.isArchive} />
-        </Switch> */}
       </Main>
 
       <Footer />
